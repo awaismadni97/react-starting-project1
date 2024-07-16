@@ -13,8 +13,8 @@ function App() {
     setSelectedTopic(selectedButton);
     console.log(selectedTopic);   // Here selectedTopic will have previous State value and not updated one. The reason
     // behind is when we call setSelectedTopic function, React schedule this function execution , and then call
-    //  App() componrnt func, so till that the line 14 gets executed which have previus state value. So, once 
-    // App() executes / renders again we got the updates state and we can see it on the UI screen.
+    //  App() componrnt func, so till that the line 14 gets executed which have previus state value.
+    // So, once  App() executes / renders again we got the updates state and we can see it on the UI screen.
   }
 
   console.log('App component Renders/Executes');
