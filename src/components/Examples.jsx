@@ -17,6 +17,19 @@ export default function Examples() {
         // So, once  App() executes / renders again we got the updates state and we can see it on the UI screen.
 
     }
+
+    let tabContent = <p>please select the topic</p>;
+    if (selectedTopic) {
+        tabContent = (
+            <div id='tab-content'>
+                <h3>{EXAMPLES[selectedTopic].title}</h3>
+                <p>{EXAMPLES[selectedTopic].description}</p>
+                <pre>
+                    <code>{EXAMPLES[selectedTopic].code}</code>
+                </pre>
+            </div>
+        );
+    }
     return (
         <Section title="Examples" id="examples">
             <menu>
@@ -25,19 +38,7 @@ export default function Examples() {
                 <TabButton isSelected={selectedTopic == 'props' ? true : false} onClick={() => handleClick('props')}>Props</TabButton>
                 <TabButton isSelected={selectedTopic == 'state' ? true : false} onClick={() => handleClick('state')}>State</TabButton>
             </menu>
-            {!selectedTopic && <p>please select the topic</p>}
-
-            {selectedTopic &&
-                (
-                    <div id='tab-content'>
-                        <h3>{EXAMPLES[selectedTopic].title}</h3>
-                        <p>{EXAMPLES[selectedTopic].description}</p>
-                        <pre>
-                            <code>{EXAMPLES[selectedTopic].code}</code>
-                        </pre>
-                    </div>
-                )
-            }
+            {tabContent}
         </Section>
     )
 }
